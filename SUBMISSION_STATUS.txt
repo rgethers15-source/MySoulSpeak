@@ -1,0 +1,20 @@
+MySoulSpeak — actual remaining release blockers
+
+Verified in App Store Connect on October 6, 2026:
+- Version 1.0 remains Rejected, with build 88 attached.
+- Support URL updated to https://github.com/rgethers15-source/MySoulSpeak.
+- Lifetime product com.mysoulspeak.premium.lifetime is Prepare for Submission and lacks an App Review screenshot.
+- Monthly product com.mysoulspeak.premium.monthly is Ready for Review; its uploaded review screenshot shows the Mirror screen rather than the paywall.
+- Monthly and yearly are in separate subscription groups; verify intended configuration to avoid overlapping subscriptions.
+
+Build89.command creates an archive on your Mac, checks its bundle ID and build number, and opens it in Xcode. Requires full Xcode, an Apple developer account, signing access and provisioning. It does not submit anything.
+
+Do not submit until:
+1. Build 89 compiles and the app is tested on an iPhone or simulator.
+2. Live AI is provided through a secure backend. The embedded credential was removed; absent a private local configuration, responses use a local fallback. Revoke the old credential; removal does not remove Git history.
+3. Terms and privacy links are live and accurately describe data handling. Current in-app links are https://soulspeak.app/terms and https://soulspeak.app/privacy; their contents have not been verified.
+4. Verify Sign in with Apple signing capability and account/data deletion requirements.
+5. Upload an actual app paywall screenshot for lifetime review, submit the intended purchase products with the new app version, and select build 89.
+6. Reconcile listing claims with tested behavior; current listing promises live AI, cloned voices and local-only privacy, which are not verified for this reconstructed build.
+
+No completed Xcode build, uploaded binary, IAP review submission, or App Review resubmission is claimed.
