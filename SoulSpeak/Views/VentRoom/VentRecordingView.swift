@@ -489,8 +489,8 @@ struct VentRecordingView: View {
     private func startHeartbeat() {
         // Double-pulse heartbeat rhythm
         Timer.scheduledTimer(withTimeInterval: 1.2, repeats: true) { _ in
-            guard recorder.isRecording else { return }
             DispatchQueue.main.async {
+                guard recorder.isRecording else { return }
                 // First beat
                 withAnimation(.easeOut(duration: 0.15)) {
                     heartbeatScale = 1.25
