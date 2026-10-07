@@ -295,12 +295,11 @@ class RageRoomSceneManager: NSObject, ObservableObject, SCNPhysicsContactDelegat
     // MARK: - Breathing Camera Sway
     
     private func startBreathingSway() {
-        let breatheAction = SCNAction.customAction(duration: 4.0) { [weak self] node, elapsed in
-            guard let self = self else { return }
+        let base = baseCameraPosition
+        let breatheAction = SCNAction.customAction(duration: 4.0) { node, elapsed in
             let phase = Float(elapsed) / 4.0 * Float.pi * 2
             let swayX = sinf(phase) * 0.008
             let swayY = cosf(phase * 0.7) * 0.005
-            let base = self.baseCameraPosition
             node.position = SCNVector3(
                 base.x + swayX,
                 base.y + swayY,
@@ -1573,7 +1572,7 @@ class RageRoomSceneManager: NSObject, ObservableObject, SCNPhysicsContactDelegat
         updateCombo()
         totalHitCount += 1
 
-        var target = destructibleObjects[index]
+        let target = destructibleObjects[index]
         lastHitMaterial = target.material.rawValue
 
         let toolMultiplier = toolForceMultiplier(tool)
@@ -2496,11 +2495,15 @@ class RageRoomSceneManager: NSObject, ObservableObject, SCNPhysicsContactDelegat
         if hangingLightFixture?.action(forKey: "strobe") == nil {
             let strobe = SCNAction.sequence([
                 SCNAction.customAction(duration: 0.05) { [weak self] _, _ in
-                    self?.mainOverheadLight?.light?.intensity = 1200
+                    DispatchQueue.main.async {
+                        self?.mainOverheadLight?.light?.intensity = 1200
+                    }
                 },
                 SCNAction.wait(duration: 0.1),
                 SCNAction.customAction(duration: 0.05) { [weak self] _, _ in
-                    self?.mainOverheadLight?.light?.intensity = 100
+                    DispatchQueue.main.async {
+                        self?.mainOverheadLight?.light?.intensity = 100
+                    }
                 },
                 SCNAction.wait(duration: Double.random(in: 0.3...0.8)),
             ])
