@@ -175,11 +175,11 @@ struct WelcomeView: View {
     // MARK: - Animations
     private func startEntryAnimations() {
         // Play Mr. Hope greeting audio
-        audioPlayer.playVoice(fileName: "mr_hope_greeting")
+        audioPlayer.playVoice(fileName: "mr_hope_audio_intro")
 
         // Start jazz background
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            audioPlayer.playBackgroundMusic(fileName: "jazz_loop_1")
+            audioPlayer.playBackgroundMusic(fileName: "jazz_loop_2")
             jazzPlaying = true
         }
 
