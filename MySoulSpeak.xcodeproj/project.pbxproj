@@ -104,6 +104,19 @@
 		7EE90D34BC6D73D5E200A278 /* VentRoomSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3896FAED905B31EAD4B76DF; };
 		C2321868E3E4542798E0F6F7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D68201D76F79A329A08B898; };
 		681DD3E8993FDADB8D4D8CB6 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E5DFAB2E9453797B725AB8; };
+		4B00E112B1538C2F3ED58381 /* insomnia_relief.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0978BF3E321CAA744C4C8 /* insomnia_relief.mp3 */; };
+		7C7BA9735A71FD560D292EF3 /* harp_and_rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 260368096F57A03AB07CB2C1 /* harp_and_rain.mp3 */; };
+		72D3AEEA382CCF3BF234B06E /* lofi_ambient.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DB996AD842B13593A01D58D /* lofi_ambient.mp3 */; };
+		D8724FAE1CDFD0BB9D41C6FE /* rain_whisper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CCB1945B62CF3E6D5AFC6058 /* rain_whisper.mp3 */; };
+		AF8264B447772A6B5AA2FFE6 /* soothing_soundscapes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A37B734D0044A2508E24E77E /* soothing_soundscapes.mp3 */; };
+		5AF29D28E198EE708F724173 /* soundscape_piano.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9CDA52B880F6DFE3351B884 /* soundscape_piano.mp3 */; };
+		DA102C73821BD083A733268E /* nature_soundscape.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13DEADF82E7377BC9151685B /* nature_soundscape.mp3 */; };
+		513BB5DBDFC0BB95DB02751A /* dr_hope_welcome.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8F4E3D5BDB0605731FC1C096 /* dr_hope_welcome.mp3 */; };
+		0331D283D6C7B2C1EC201E28 /* dr_hope_intro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 717C3E2BC160289FDF18CCE5 /* dr_hope_intro.mp3 */; };
+		0027296D776DCD67D8B37452 /* mr_hope_audio_intro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 73253E2255E5A9D563A7DAC2 /* mr_hope_audio_intro.mp3 */; };
+		E0C5889DC121FE89B4ABD60C /* mr_hope_intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 166617C0621AD1D70E22AAAF /* mr_hope_intro.mp4 */; };
+		11A6B252FA28138418B5B1FD /* centered_room_intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0B00CC23380DBD6176ADACDC /* centered_room_intro.mp4 */; };
+		BF9083475CF076F9B085F755 /* dr_hope_speak_truth.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3BEB60AF82CA1BCA6CC5C083 /* dr_hope_speak_truth.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +219,19 @@
 		A3896FAED905B31EAD4B76DF /* VentRoomSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentRoomSceneView.swift; sourceTree = "<group>"; };
 		0D68201D76F79A329A08B898 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E3E5DFAB2E9453797B725AB8 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		2FB0978BF3E321CAA744C4C8 /* insomnia_relief.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = insomnia_relief.mp3; sourceTree = "<group>"; };
+		260368096F57A03AB07CB2C1 /* harp_and_rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = harp_and_rain.mp3; sourceTree = "<group>"; };
+		8DB996AD842B13593A01D58D /* lofi_ambient.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = lofi_ambient.mp3; sourceTree = "<group>"; };
+		CCB1945B62CF3E6D5AFC6058 /* rain_whisper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rain_whisper.mp3; sourceTree = "<group>"; };
+		A37B734D0044A2508E24E77E /* soothing_soundscapes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = soothing_soundscapes.mp3; sourceTree = "<group>"; };
+		C9CDA52B880F6DFE3351B884 /* soundscape_piano.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = soundscape_piano.mp3; sourceTree = "<group>"; };
+		13DEADF82E7377BC9151685B /* nature_soundscape.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = nature_soundscape.mp3; sourceTree = "<group>"; };
+		8F4E3D5BDB0605731FC1C096 /* dr_hope_welcome.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dr_hope_welcome.mp3; sourceTree = "<group>"; };
+		717C3E2BC160289FDF18CCE5 /* dr_hope_intro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dr_hope_intro.mp3; sourceTree = "<group>"; };
+		73253E2255E5A9D563A7DAC2 /* mr_hope_audio_intro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mr_hope_audio_intro.mp3; sourceTree = "<group>"; };
+		166617C0621AD1D70E22AAAF /* mr_hope_intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mr_hope_intro.mp4; sourceTree = "<group>"; };
+		0B00CC23380DBD6176ADACDC /* centered_room_intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = centered_room_intro.mp4; sourceTree = "<group>"; };
+		3BEB60AF82CA1BCA6CC5C083 /* dr_hope_speak_truth.mp3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = dr_hope_speak_truth.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +404,19 @@
 		97C2CB2BFEE0CE1F6038024A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2FB0978BF3E321CAA744C4C8 /* insomnia_relief.mp3 */,
+				260368096F57A03AB07CB2C1 /* harp_and_rain.mp3 */,
+				8DB996AD842B13593A01D58D /* lofi_ambient.mp3 */,
+				CCB1945B62CF3E6D5AFC6058 /* rain_whisper.mp3 */,
+				A37B734D0044A2508E24E77E /* soothing_soundscapes.mp3 */,
+				C9CDA52B880F6DFE3351B884 /* soundscape_piano.mp3 */,
+				13DEADF82E7377BC9151685B /* nature_soundscape.mp3 */,
+				8F4E3D5BDB0605731FC1C096 /* dr_hope_welcome.mp3 */,
+				717C3E2BC160289FDF18CCE5 /* dr_hope_intro.mp3 */,
+				73253E2255E5A9D563A7DAC2 /* mr_hope_audio_intro.mp3 */,
+				166617C0621AD1D70E22AAAF /* mr_hope_intro.mp4 */,
+				0B00CC23380DBD6176ADACDC /* centered_room_intro.mp4 */,
+				3BEB60AF82CA1BCA6CC5C083 /* dr_hope_speak_truth.mp3 */,
 				1FB3A78B30313A6E005ACC7C /* calvin_cancel.mp4 */,
 				1FB3A78730313807005ACC7C /* taylor_intro.mp4 */,
 				FC60F7C029080AAD3A360B80 /* anger_management_meditation.mp3 */,
@@ -552,6 +591,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B00E112B1538C2F3ED58381 /* insomnia_relief.mp3 in Resources */,
+				7C7BA9735A71FD560D292EF3 /* harp_and_rain.mp3 in Resources */,
+				72D3AEEA382CCF3BF234B06E /* lofi_ambient.mp3 in Resources */,
+				D8724FAE1CDFD0BB9D41C6FE /* rain_whisper.mp3 in Resources */,
+				AF8264B447772A6B5AA2FFE6 /* soothing_soundscapes.mp3 in Resources */,
+				5AF29D28E198EE708F724173 /* soundscape_piano.mp3 in Resources */,
+				DA102C73821BD083A733268E /* nature_soundscape.mp3 in Resources */,
+				513BB5DBDFC0BB95DB02751A /* dr_hope_welcome.mp3 in Resources */,
+				0331D283D6C7B2C1EC201E28 /* dr_hope_intro.mp3 in Resources */,
+				0027296D776DCD67D8B37452 /* mr_hope_audio_intro.mp3 in Resources */,
+				E0C5889DC121FE89B4ABD60C /* mr_hope_intro.mp4 in Resources */,
+				11A6B252FA28138418B5B1FD /* centered_room_intro.mp4 in Resources */,
+				BF9083475CF076F9B085F755 /* dr_hope_speak_truth.mp3 in Resources */,
 				8C6175E7D4401E660D1F31DF /* Assets.xcassets in Resources */,
 				1017DD499E462F6D1B5B6482 /* anger_management_meditation.mp3 in Resources */,
 				6CF2498F683F291A1EAD6EBB /* breaking_free_abusive_relationship.mp3 in Resources */,
