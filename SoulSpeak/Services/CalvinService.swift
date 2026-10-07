@@ -27,8 +27,7 @@ class CalvinService: ObservableObject {
            key != "YOUR_GEMINI_API_KEY" {
             return key
         }
-        let parts = ["AQ", ".", "Ab8RN6JVQCNi5vGPgiZr1knc45", "-tKVcO9_AI1yWSd5KqKM3TWg"]
-        return parts.joined()
+        return ""
     }()
 
     private let baseURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent"
@@ -310,11 +309,12 @@ class CalvinService: ObservableObject {
             trigger: trigger
         )
 
+        let eventTitle = event.title
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("[Calvin] Notification error: \(error)")
             } else {
-                print("[Calvin] Reminder scheduled for \(event.title)")
+                print("[Calvin] Reminder scheduled for \(eventTitle)")
             }
         }
     }
