@@ -21,8 +21,7 @@ class TextToSpeechService: ObservableObject {
             return key
         }
         // Built-in fallback (obfuscated)
-        let parts = ["sk_", "32bec5d7c6d3643", "9221ba193a73975b5", "f66c53947ca5b1aa"]
-        return parts.joined()
+        return ""
     }()
 
     private let baseURL = "https://api.elevenlabs.io/v1/text-to-speech"
