@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MySoulSpeak.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>1C3FE373A077D096B94A9CD6572414C6FBC6EA60</string>
+				<key>dateExpires</key>
+				<string>8/27/27</string>
+				<key>type</key>
+				<string>Cloud Managed Apple Distribution</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>BW5W4J5N92.com.soulspeak.app</string>
+				<key>beta-reports-active</key>
+				<true/>
+				<key>com.apple.developer.team-identifier</key>
+				<string>BW5W4J5N92</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>MySoulSpeak.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>7d28b7f6-8876-4b99-aa8f-2f052c43bc1d</string>
+				<key>dateExpires</key>
+				<string>8/27/27</string>
+				<key>name</key>
+				<string>iOS Team Store Provisioning Profile: com.soulspeak.app</string>
+			</dict>
+			<key>symbols</key>
+			<true/>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>BW5W4J5N92</string>
+				<key>name</key>
+				<string>Teresa Gethers</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>
