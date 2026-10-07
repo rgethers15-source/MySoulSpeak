@@ -5,11 +5,7 @@ import StoreKit
 /// Premium features: AI Conversation with Dr. Hope/Mr. Hope, Vent Room.
 @MainActor
 class StoreKitService: ObservableObject {
-    #if DEBUG
-    @Published var isPremium: Bool = true  // Always unlocked for testing
-    #else
     @Published var isPremium: Bool = false
-    #endif
     @Published var products: [Product] = []
     @Published var purchaseError: String?
     @Published var isLoading: Bool = false
@@ -49,10 +45,13 @@ class StoreKitService: ObservableObject {
     /// Load available products from App Store.
     func loadProducts() async {
         isLoading = true
+        purchaseError = nil
         do {
             let storeProducts = try await Product.products(for: StoreKitService.allProductIDs)
             products = storeProducts.sorted { $0.price < $1.price }
         } catch {
+            products = []
+            purchaseError = "Prices could not be loaded. Please try again."
             print("[SoulSpeak] Failed to load products: \(error)")
         }
         isLoading = false
@@ -62,6 +61,7 @@ class StoreKitService: ObservableObject {
 
     /// Purchase a product.
     func purchase(_ product: Product) async -> Bool {
+        guard !isLoading else { return false }
         isLoading = true
         purchaseError = nil
 
@@ -74,7 +74,7 @@ class StoreKitService: ObservableObject {
                 await transaction.finish()
                 await checkPremiumStatus()
                 isLoading = false
-                return true
+                return isPremium
 
             case .userCancelled:
                 isLoading = false
@@ -101,21 +101,25 @@ class StoreKitService: ObservableObject {
 
     /// Restore previous purchases.
     func restorePurchases() async {
+        guard !isLoading else { return }
         isLoading = true
-        try? await AppStore.sync()
-        await checkPremiumStatus()
-        isLoading = false
+        purchaseError = nil
+        defer { isLoading = false }
+        do {
+            try await AppStore.sync()
+            await checkPremiumStatus()
+            if !isPremium {
+                purchaseError = "No active premium purchases were found for this Apple Account."
+            }
+        } catch {
+            purchaseError = "Purchases could not be restored. Please try again."
+        }
     }
 
     // MARK: - Check Premium Status
 
     /// Check if user has active premium entitlement.
     func checkPremiumStatus() async {
-        #if DEBUG
-        // In debug/testing mode, always keep premium unlocked
-        isPremium = true
-        return
-        #else
         for await result in Transaction.currentEntitlements {
             if let transaction = try? checkVerified(result) {
                 if StoreKitService.allProductIDs.contains(transaction.productID) {
@@ -125,7 +129,6 @@ class StoreKitService: ObservableObject {
             }
         }
         isPremium = false
-        #endif
     }
 
     // MARK: - Transaction Listener
