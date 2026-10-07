@@ -2,19 +2,6 @@ import SwiftUI
 
 /// Soundscapes — Free playlist of relaxing soundscapes and instrumental music.
 ///
-/// Audio files expected in bundle (all free/royalty-free):
-/// - rain_gentle.mp3
-/// - ocean_waves.mp3
-/// - forest_birds.mp3
-/// - creek_flowing.mp3
-/// - thunder_distant.mp3
-/// - night_crickets.mp3
-/// - piano_calm.mp3
-/// - guitar_acoustic.mp3
-/// - flute_meditation.mp3
-/// - jazz_soft.mp3
-/// - harp_peaceful.mp3
-/// - chimes_wind.mp3
 struct SoundscapesView: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var audioPlayer = AudioPlayerService.shared
@@ -25,6 +12,7 @@ struct SoundscapesView: View {
         case nature = "Meditations"
         case instrumental = "Pep Talks"
         case ambient = "Healing"
+        case sounds = "Sounds"
     }
 
     var body: some View {
@@ -213,6 +201,16 @@ struct SoundscapesView: View {
                 SoundTrack(name: "Feminine Energy Pep Talk", fileName: "feminine_energy_pep_talk", duration: "Full", color: .pink),
                 SoundTrack(name: "Masculine Energy Pep Talk", fileName: "masculine_energy_pep_talk", duration: "Full", color: .orange),
                 SoundTrack(name: "Anger Management", fileName: "anger_management_meditation", duration: "Full", color: .red),
+            ]
+        case .sounds:
+            return [
+                SoundTrack(name: "Insomnia Relief", fileName: "insomnia_relief", duration: "Loop", color: .indigo),
+                SoundTrack(name: "Harp and Rain", fileName: "harp_and_rain", duration: "Loop", color: .blue),
+                SoundTrack(name: "Lo-fi Ambient", fileName: "lofi_ambient", duration: "Loop", color: .purple),
+                SoundTrack(name: "Rain Whisper", fileName: "rain_whisper", duration: "Loop", color: .cyan),
+                SoundTrack(name: "Soothing Soundscapes", fileName: "soothing_soundscapes", duration: "Loop", color: .teal),
+                SoundTrack(name: "Soundscape Piano", fileName: "soundscape_piano", duration: "Loop", color: .pink),
+                SoundTrack(name: "Nature Soundscape", fileName: "nature_soundscape", duration: "Loop", color: .green),
             ]
         case .ambient:
             return [
