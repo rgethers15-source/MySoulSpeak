@@ -266,12 +266,18 @@ struct PaywallView: View {
     // MARK: - Restore
     private var restoreButton: some View {
         Button(action: {
-            Task { await store.restorePurchases() }
+            Task {
+                await store.restorePurchases()
+                if store.isPremium {
+                    withAnimation { showSuccess = true }
+                }
+            }
         }) {
             Text("Restore Purchases")
                 .font(.system(size: 13, weight: .medium))
                 .foregroundColor(.white.opacity(0.5))
         }
+        .disabled(store.isLoading)
     }
 
     // MARK: - Legal
