@@ -298,7 +298,7 @@ struct PrayerOutroView: View {
             prayerPlaying = false
             drHopeTalking = false
         } else {
-            audioPlayer.playPrayer(fileName: "dr_hope_prayer")
+            audioPlayer.playPrayer(fileName: "dr_hope_closing prayer")
             prayerPlaying = true
             drHopeTalking = true
 
