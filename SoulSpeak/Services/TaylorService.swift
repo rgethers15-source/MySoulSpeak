@@ -22,8 +22,7 @@ class TaylorService: ObservableObject {
            key != "YOUR_GEMINI_API_KEY" {
             return key
         }
-        let parts = ["AQ", ".", "Ab8RN6JVQCNi5vGPgiZr1knc45", "-tKVcO9_AI1yWSd5KqKM3TWg"]
-        return parts.joined()
+        return ""
     }()
 
     private let baseURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent"
