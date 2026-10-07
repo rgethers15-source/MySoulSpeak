@@ -49,7 +49,6 @@
 		54B6A44591ED5B155DF258B0 /* feminine_energy_pep_talk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68DAF88D6ABFA97D5E2B6532 /* feminine_energy_pep_talk.mp3 */; };
 		5AD061437011DCEC857BEA86 /* AccountabilityCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975DFFC55315A85F0E9A9BC6 /* AccountabilityCategoriesView.swift */; };
 		677892B20E7A1BE74B2982B8 /* PrayerOutroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E527B9177DFAF14D72FA385 /* PrayerOutroView.swift */; };
-		67A55EDF8B83FA808DC4B93E /* Disclaimer.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7250A58CB2030936655DBF11 /* Disclaimer.pdf */; };
 		684AF07C362E59C7D42097F2 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78729E1742EC47B77040D333 /* UserProfile.swift */; };
 		685B13812F121CB0D1F0FBF9 /* RageRoomSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7305F7720AB475F81AC7E11 /* RageRoomSceneManager.swift */; };
 		69F6E88A838677BA4BCE9BBE /* Medication.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC622E2AF6387457E1EC2DE9 /* Medication.swift */; };
@@ -147,7 +146,6 @@
 		68DAF88D6ABFA97D5E2B6532 /* feminine_energy_pep_talk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = feminine_energy_pep_talk.mp3; sourceTree = "<group>"; };
 		6A4D40512DA7CA29B06F37F1 /* CalvinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalvinService.swift; sourceTree = "<group>"; };
 		6A8D34FC011A27FF60B37FC7 /* StoreKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitService.swift; sourceTree = "<group>"; };
-		7250A58CB2030936655DBF11 /* Disclaimer.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Disclaimer.pdf; sourceTree = "<group>"; };
 		73A2B5CAC79CA4F176DBEFBE /* calvin_intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = calvin_intro.mp4; sourceTree = "<group>"; };
 		749D880B9C6C077A5A23C47F /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 		75E723909D28672D47AEECF6 /* inner_peace_meditation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = inner_peace_meditation.mp3; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 				1FB3A78730313807005ACC7C /* taylor_intro.mp4 */,
 				FC60F7C029080AAD3A360B80 /* anger_management_meditation.mp3 */,
 				319C8755F3D604DEB62F3F50 /* breaking_free_abusive_relationship.mp3 */,
-				7250A58CB2030936655DBF11 /* Disclaimer.pdf */,
 				607A6F2F34E84DC7CBB473B9 /* dr_hope_closing prayer.mp3 */,
 				512246474654F3864AD84B4C /* dr_hope_closing.mp3 */,
 				9C107ED81FC80FBC45E9194A /* dr_hope_intro.mp4 */,
@@ -558,7 +555,6 @@
 				8C6175E7D4401E660D1F31DF /* Assets.xcassets in Resources */,
 				1017DD499E462F6D1B5B6482 /* anger_management_meditation.mp3 in Resources */,
 				6CF2498F683F291A1EAD6EBB /* breaking_free_abusive_relationship.mp3 in Resources */,
-				67A55EDF8B83FA808DC4B93E /* Disclaimer.pdf in Resources */,
 				4A33A3941F42233C8E329C60 /* dr_hope_closing prayer.mp3 in Resources */,
 				B63B406AB35853F8C186676F /* dr_hope_closing.mp3 in Resources */,
 				832A42224F694FA7052F6092 /* dr_hope_intro.mp4 in Resources */,
