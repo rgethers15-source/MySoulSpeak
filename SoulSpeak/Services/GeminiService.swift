@@ -24,11 +24,8 @@ class GeminiService: ObservableObject {
             print("[SoulSpeak Gemini] API key loaded from plist, length: \(key.count)")
             return key
         }
-        // Built-in fallback (obfuscated)
-        let parts = ["AQ", ".", "Ab8RN6JVQCNi5vGPgiZr1knc45", "-tKVcO9_AI1yWSd5KqKM3TWg"]
-        let key = parts.joined()
-        print("[SoulSpeak Gemini] Using built-in API key, length: \(key.count)")
-        return key
+        // Configure a private development key locally; never commit credentials.
+        return ""
     }()
 
     private let baseURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent"
@@ -141,7 +138,7 @@ class GeminiService: ObservableObject {
         do {
             let response = try await callGeminiAPI(text: text, character: character)
             lastResponse = response
-            print("[SoulSpeak Gemini] Got response: \(response.prefix(80))...")
+            // Keep journal and conversation text out of logs.
 
             let assistantMessage = ConversationMessage(role: .assistant, content: response, timestamp: Date())
             conversationHistory.append(assistantMessage)
