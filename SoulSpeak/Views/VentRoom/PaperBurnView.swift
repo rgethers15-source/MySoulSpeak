@@ -82,39 +82,9 @@ struct PaperBurnView: View {
             }
             .ignoresSafeArea(edges: .bottom)
 
-            // Ash particles floating upward
-            ForEach(ashParticles) { particle in
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            colors: [Color.gray.opacity(0.6), Color.gray.opacity(0.1)],
-                            center: .center,
-                            startRadius: 0,
-                            endRadius: particle.size / 2
-                        )
-                    )
-                    .frame(width: particle.size, height: particle.size)
-                    .rotationEffect(.degrees(particle.rotation))
-                    .opacity(particle.opacity)
-                    .position(x: particle.x, y: particle.y)
-            }
+            ashParticleLayer
 
-            // Ember particles scattering
-            ForEach(emberParticles) { particle in
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            colors: [Color.yellow, Color.orange, Color.red.opacity(0.5)],
-                            center: .center,
-                            startRadius: 0,
-                            endRadius: particle.size
-                        )
-                    )
-                    .frame(width: particle.size, height: particle.size)
-                    .opacity(particle.opacity)
-                    .position(x: particle.x, y: particle.y)
-                    .blur(radius: 0.5)
-            }
+            emberParticleLayer
 
             // The draggable paper
             if !paperPlaced {
@@ -188,7 +158,7 @@ struct PaperBurnView: View {
 
             // Subtle flicker on walls
             if burning {
-                Color.orange.opacity(roomWarmth * 0.05 * (1 + Foundation.sin(flamePhase * 3) * 0.5))
+                Color.orange.opacity(roomWarmth * 0.05 * (1 + Foundation.sin(Double(flamePhase) * 3) * 0.5))
                     .ignoresSafeArea()
                     .allowsHitTesting(false)
             }
@@ -325,6 +295,103 @@ struct PaperBurnView: View {
     // MARK: - Elite Fireplace View
     private var eliteFireplaceView: some View {
         ZStack {
+            stoneHearth
+
+            // Inner fire chamber
+            if burning || fireIntensity > 0 {
+                ZStack {
+            emberBed
+
+                    // Layer 1: Deep red outer flame
+                    flameLayer(
+                        width: 180, height: 160,
+                        colors: [Color(red: 0.6, green: 0.1, blue: 0), Color.red.opacity(0.8), Color.red.opacity(0)],
+                        blur: 15, yOffset: -10, phaseOffset: 0
+                    )
+
+                    // Layer 2: Orange middle flame
+                    flameLayer(
+                        width: 140, height: 140,
+                        colors: [Color(red: 1, green: 0.4, blue: 0), Color.orange, Color.orange.opacity(0)],
+                        blur: 10, yOffset: 0, phaseOffset: 0.5
+                    )
+
+                    // Layer 3: Bright inner flame
+                    flameLayer(
+                        width: 90, height: 110,
+                        colors: [Color.yellow, Color(red: 1, green: 0.6, blue: 0), Color.orange.opacity(0)],
+                        blur: 6, yOffset: 10, phaseOffset: 1.0
+                    )
+
+            flameCore
+
+                    // Animated flame tips (individual tongues of fire)
+                    ForEach(0..<9, id: \.self) { i in
+                        flameTip(index: i)
+                    }
+
+                    // Sparks rising
+                    if burning {
+                        ForEach(0..<15, id: \.self) { i in
+                            risingSpark(index: i)
+                        }
+                    }
+                }
+                .opacity(Double(fireIntensity))
+            }
+
+            smokeLayer
+
+        }
+        .frame(height: 260)
+    }
+
+    private var ashParticleLayer: some View {
+        ZStack {
+            // Ash particles floating upward
+            ForEach(ashParticles) { particle in
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.gray.opacity(0.6), Color.gray.opacity(0.1)],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: particle.size / 2
+                        )
+                    )
+                    .frame(width: particle.size, height: particle.size)
+                    .rotationEffect(.degrees(particle.rotation))
+                    .opacity(particle.opacity)
+                    .position(x: particle.x, y: particle.y)
+            }
+
+        }
+    }
+
+    private var emberParticleLayer: some View {
+        ZStack {
+            // Ember particles scattering
+            ForEach(emberParticles) { particle in
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [Color.yellow, Color.orange, Color.red.opacity(0.5)],
+                            center: .center,
+                            startRadius: 0,
+                            endRadius: particle.size
+                        )
+                    )
+                    .frame(width: particle.size, height: particle.size)
+                    .opacity(particle.opacity)
+                    .position(x: particle.x, y: particle.y)
+                    .blur(radius: 0.5)
+            }
+
+        }
+    }
+
+    private var stoneHearth: some View {
+        ZStack {
             // Stone hearth base
             RoundedRectangle(cornerRadius: 6)
                 .fill(
@@ -355,9 +422,11 @@ struct PaperBurnView: View {
                 )
                 .shadow(color: burning ? Color.orange.opacity(0.7) : Color.orange.opacity(0.1), radius: burning ? 60 : 10)
 
-            // Inner fire chamber
-            if burning || fireIntensity > 0 {
-                ZStack {
+        }
+    }
+
+    private var emberBed: some View {
+        ZStack {
                     // Deep ember bed
                     Ellipse()
                         .fill(
@@ -376,27 +445,11 @@ struct PaperBurnView: View {
                         .frame(width: 220, height: 50)
                         .offset(y: 70)
 
-                    // Layer 1: Deep red outer flame
-                    flameLayer(
-                        width: 180, height: 160,
-                        colors: [Color(red: 0.6, green: 0.1, blue: 0), Color.red.opacity(0.8), Color.red.opacity(0)],
-                        blur: 15, yOffset: -10, phaseOffset: 0
-                    )
+        }
+    }
 
-                    // Layer 2: Orange middle flame
-                    flameLayer(
-                        width: 140, height: 140,
-                        colors: [Color(red: 1, green: 0.4, blue: 0), Color.orange, Color.orange.opacity(0)],
-                        blur: 10, yOffset: 0, phaseOffset: 0.5
-                    )
-
-                    // Layer 3: Bright inner flame
-                    flameLayer(
-                        width: 90, height: 110,
-                        colors: [Color.yellow, Color(red: 1, green: 0.6, blue: 0), Color.orange.opacity(0)],
-                        blur: 6, yOffset: 10, phaseOffset: 1.0
-                    )
-
+    private var flameCore: some View {
+        ZStack {
                     // Layer 4: White-hot core
                     Ellipse()
                         .fill(
@@ -412,30 +465,11 @@ struct PaperBurnView: View {
                         .offset(y: 50)
                         .opacity(Double(fireIntensity))
 
-                    // Animated flame tips (individual tongues of fire)
-                    ForEach(0..<9, id: \.self) { i in
-                        flameTip(index: i)
-                    }
+        }
+    }
 
-                    // Sparks rising
-                    if burning {
-                        ForEach(0..<15, id: \.self) { i in
-                            Circle()
-                                .fill(
-                                    i % 3 == 0 ? Color.yellow : (i % 3 == 1 ? Color.orange : Color.red)
-                                )
-                                .frame(width: CGFloat(1 + i % 3), height: CGFloat(1 + i % 3))
-                                .offset(
-                                    x: CGFloat(Foundation.sin(Double(i) * 0.7 + Double(flamePhase)) * 50),
-                                    y: CGFloat(-60 - Double(i) * 12) + CGFloat(Foundation.sin(Double(flamePhase) + Double(i)) * 8)
-                                )
-                                .opacity(Double(1.0 - CGFloat(i) / 15.0) * Double(fireIntensity))
-                        }
-                    }
-                }
-                .opacity(Double(fireIntensity))
-            }
-
+    private var smokeLayer: some View {
+        ZStack {
             // Smoke wisps
             if burning {
                 ForEach(0..<5, id: \.self) { i in
@@ -450,7 +484,20 @@ struct PaperBurnView: View {
                 }
             }
         }
-        .frame(height: 260)
+    }
+
+    private func risingSpark(index: Int) -> some View {
+        let phase = Double(flamePhase)
+        let size = CGFloat(1 + index % 3)
+        let x = CGFloat(sin(Double(index) * 0.7 + phase) * 50)
+        let y = CGFloat(-60 - Double(index) * 12 + sin(phase + Double(index)) * 8)
+        let opacity = (1.0 - Double(index) / 15.0) * Double(fireIntensity)
+        let color: Color = index % 3 == 0 ? .yellow : (index % 3 == 1 ? .orange : .red)
+        return Circle()
+            .fill(color)
+            .frame(width: size, height: size)
+            .offset(x: x, y: y)
+            .opacity(opacity)
     }
 
     // MARK: - Flame Layer Helper
